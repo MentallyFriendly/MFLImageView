@@ -1,0 +1,12 @@
+platform :ios, '7.0'
+workspace '../MFLImageView'
+
+target 'MFLImageView' do
+  pod 'AFNetworking'
+  pod 'MFLImageView', :path => '../'
+end
+
+target 'MFLImageViewTests' do
+  pod 'Expecta'
+end
+

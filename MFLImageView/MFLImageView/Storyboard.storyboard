@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hnl-CD-wlL">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="EOe-vG-Jzt">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="hnl-CD-wlL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N3E-Kp-IQW">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Gdx-cJ-ZDl" kind="relationship" relationship="rootViewController" id="npS-75-1re"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ia4-wu-Zhc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="224" y="-286"/>
+        </scene>
+        <!--View Controller - MFLImageView-->
+        <scene sceneID="4vT-FS-4se">
+            <objects>
+                <viewController id="Gdx-cJ-ZDl" customClass="MFLViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vMe-s7-e6h"/>
+                        <viewControllerLayoutGuide type="bottom" id="iYp-cT-0cW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1tL-0m-w76">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ss6-cZ-CJW" customClass="MFLImageView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="320"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ss6-cZ-CJW" secondAttribute="height" multiplier="1:1" id="9hR-Ov-Vic"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qse-f8-FGS">
+                                <rect key="frame" x="0.0" y="434" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6lL-sm-g7q"/>
+                                </constraints>
+                                <state key="normal" title="Change Image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeImage:" destination="Gdx-cJ-ZDl" eventType="touchUpInside" id="10L-Nt-Sf5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qse-f8-FGS" firstAttribute="leading" secondItem="1tL-0m-w76" secondAttribute="leading" id="Ba2-Dv-xdA"/>
+                            <constraint firstAttribute="trailing" secondItem="qse-f8-FGS" secondAttribute="trailing" id="I08-mu-uXL"/>
+                            <constraint firstItem="qse-f8-FGS" firstAttribute="top" secondItem="Ss6-cZ-CJW" secondAttribute="bottom" constant="50" id="dy6-5P-RdC"/>
+                            <constraint firstAttribute="trailing" secondItem="Ss6-cZ-CJW" secondAttribute="trailing" id="haE-2p-I4N"/>
+                            <constraint firstItem="Ss6-cZ-CJW" firstAttribute="leading" secondItem="1tL-0m-w76" secondAttribute="leading" id="rPz-Rw-TF5"/>
+                            <constraint firstItem="Ss6-cZ-CJW" firstAttribute="top" secondItem="vMe-s7-e6h" secondAttribute="bottom" id="soc-47-4aR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="MFLImageView" id="ZTG-e4-pBu"/>
+                    <connections>
+                        <outlet property="imageView" destination="Ss6-cZ-CJW" id="szO-8H-t5P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SiO-ky-nO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640" y="-286"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
