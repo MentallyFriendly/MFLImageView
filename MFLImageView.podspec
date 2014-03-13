@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
   spec.homepage = 'https://github.com/MentallyFriendly/MFLImageView'
   spec.social_media_url = 'https://twitter.com/kylefuller'
   spec.source = {
-    :git => 'https://github.com/MentallyFriendly/MFLImageView',
+    :git => 'https://github.com/MentallyFriendly/MFLImageView.git',
     :tag => "#{spec.version}",
   }
   spec.platform = :ios, '6.0'
