@@ -8,7 +8,7 @@ test-ios:
 	$(XCODEBUILD) -scheme 'MFLImageView' -sdk iphonesimulator test 2>/dev/null | xcpretty -c
 
 test-podspec:
-	pod spec lint MFLImageView.podspec
+	pod lib lint MFLImageView.podspec
 
 tests:test-ios test-podspec
 
