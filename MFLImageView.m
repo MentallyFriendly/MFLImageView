@@ -35,9 +35,17 @@
     [self cancelImageRequestOperation];
 
     _imageURL = imageURL;
-    self.image = nil;
+    self.image = self.placeholderImage;
 
     [self setImageWithURL:imageURL];
+}
+
+- (void)setPlaceholderImage:(UIImage *)placeholderImage {
+    _placeholderImage = placeholderImage;
+
+    if (self.image == nil) {
+        self.image = placeholderImage;
+    }
 }
 
 @end

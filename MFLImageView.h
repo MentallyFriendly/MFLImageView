@@ -11,5 +11,6 @@
 @interface MFLImageView : UIImageView
 
 @property (nonatomic, strong) NSURL *imageURL;
+@property (nonatomic, strong) UIImage *placeholderImage;
 
 @end
