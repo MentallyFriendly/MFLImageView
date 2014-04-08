@@ -30,6 +30,7 @@
 - (void)mfl_setupDefaults {
     self.backgroundColor = [UIColor grayColor];
     self.contentMode = UIViewContentModeScaleAspectFill;
+    self.clipsToBounds = YES;
 }
 
 - (void)setImageURL:(NSURL *)imageURL {
