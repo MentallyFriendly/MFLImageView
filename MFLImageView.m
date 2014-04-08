@@ -29,6 +29,7 @@
 
 - (void)mfl_setupDefaults {
     self.backgroundColor = [UIColor grayColor];
+    self.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 - (void)setImageURL:(NSURL *)imageURL {
