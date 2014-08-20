@@ -36,15 +36,23 @@
     self.clipsToBounds = YES;
 }
 
+- (void)usePlaceholderImage {
+    self.contentMode = self.placeholderContentMode;
+    self.image = self.placeholderImage;
+}
+
+- (void)useLoadingImage {
+    self.contentMode = self.loadingContentMode;
+    self.image = self.loadingImage;
+}
+
 - (void)setImageURL:(NSURL *)imageURL {
     [self cancelImageRequestOperation];
 
     _imageURL = imageURL;
-    self.image = self.placeholderImage;
 
     if (imageURL) {
-        self.contentMode = self.loadingContentMode;
-        self.image = self.loadingImage;
+        [self useLoadingImage];
 
         __weak MFLImageView *weakSelf = self;
         NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
@@ -52,9 +60,10 @@
             weakSelf.contentMode = weakSelf.imageContentMode;
             weakSelf.image = image;
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-            weakSelf.contentMode = weakSelf.placeholderContentMode;
-            weakSelf.image = weakSelf.placeholderImage;
+            [weakSelf usePlaceholderImage];
         }];
+    } else {
+        [self usePlaceholderImage];
     }
 }
 
@@ -62,8 +71,7 @@
     _placeholderImage = placeholderImage;
 
     if (self.image == nil) {
-        self.contentMode = self.placeholderContentMode;
-        self.image = placeholderImage;
+        [self usePlaceholderImage];
     }
 }
 
