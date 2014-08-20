@@ -60,7 +60,9 @@
             weakSelf.contentMode = weakSelf.imageContentMode;
             weakSelf.image = image;
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-            [weakSelf usePlaceholderImage];
+            if (!([error.domain isEqualToString:NSURLErrorDomain] && error.code == NSURLErrorCancelled)) {
+                [weakSelf usePlaceholderImage];
+            }
         }];
     } else {
         [self usePlaceholderImage];
