@@ -30,6 +30,9 @@
 - (void)mfl_setupDefaults {
     self.backgroundColor = [UIColor grayColor];
     self.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageContentMode = UIViewContentModeScaleAspectFill;
+    self.placeholderContentMode = UIViewContentModeScaleAspectFill;
+    self.loadingContentMode = UIViewContentModeCenter;
     self.clipsToBounds = YES;
 }
 
@@ -39,13 +42,27 @@
     _imageURL = imageURL;
     self.image = self.placeholderImage;
 
-    [self setImageWithURL:imageURL];
+    if (imageURL) {
+        self.contentMode = self.loadingContentMode;
+        self.image = self.loadingImage;
+
+        __weak MFLImageView *weakSelf = self;
+        NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
+        [self setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            weakSelf.contentMode = weakSelf.imageContentMode;
+            weakSelf.image = image;
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            weakSelf.contentMode = weakSelf.placeholderContentMode;
+            weakSelf.image = weakSelf.placeholderImage;
+        }];
+    }
 }
 
 - (void)setPlaceholderImage:(UIImage *)placeholderImage {
     _placeholderImage = placeholderImage;
 
     if (self.image == nil) {
+        self.contentMode = self.placeholderContentMode;
         self.image = placeholderImage;
     }
 }

@@ -11,6 +11,12 @@
 @interface MFLImageView : UIImageView
 
 @property (nonatomic, strong) NSURL *imageURL;
+@property (nonatomic, assign) UIViewContentMode imageContentMode;
+
 @property (nonatomic, strong) UIImage *placeholderImage;
+@property (nonatomic, assign) UIViewContentMode placeholderContentMode;
+
+@property (nonatomic, strong) UIImage *loadingImage;
+@property (nonatomic, assign) UIViewContentMode loadingContentMode;
 
 @end
